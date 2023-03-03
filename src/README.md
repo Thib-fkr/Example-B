@@ -48,8 +48,8 @@ where `< actionX >` is an action that verify some property of `var1'` such as `v
 
 which is kind of equivalent to :
 ```python
-if < conditionA > :
-    < actionA >
-elif < conditionB > :
-    < actionB >
+if conditionA :
+    actionA
+elif conditionB :
+    actionB
 ```

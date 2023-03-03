@@ -55,4 +55,19 @@ events
     then
         @act1_1: chain2_signal :∣ (chain2_signal' ∈ COLOUR) ∧ (chain2_place1 = nothing ⇒ chain2_signal' = green) ∧ (chain2_place1 ≠ nothing ⇒ chain2_signal' = red)
     end
+    
+    event new_veh_file1 extends new_veh_file1
+    end
+
+    event new_veh_file2 extends new_veh_file2
+    end
+
+    event veh_passes_from_file1_to_system extends veh_passes_from_file1_to_system
+    end
+
+    event veh_passes_from_file2_to_system extends veh_passes_from_file2_to_system
+    end
+
+    event veh_leaves_system extends veh_leaves_system
+    end
 end

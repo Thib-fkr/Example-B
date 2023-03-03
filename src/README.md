@@ -1,9 +1,12 @@
 A few additionnal info that may or may not be useful :
 
+## Methodology
+
 The main idea during the devellopment of the full project was to make each event as simple as possible.
 It means that there where a lot of small events, but it allows your project to be (more easily) proved by Rodin.
 The goal was to have a 100% proved program without making any proof by hand.
 
+## Refines
 
 When you want a new version of an already existing event in your new machine, you can refine events using this syntax :
 ```
@@ -17,6 +20,7 @@ then
 end
 ```
 
+## Extends
 
 When you don't want to make a new version of an already existing event in your new machine, you can extend events using this syntax :
 ```
@@ -30,8 +34,9 @@ then
 end
 ```
 
+## Becomes such that
 
-The more complex instruction I used is the `:| (become such that)` operator, here's how to use it :
+The more complex instruction I used is the `:| (becomes such that)` operator, here's how to use it :
 ```
 event event_name_1
 where

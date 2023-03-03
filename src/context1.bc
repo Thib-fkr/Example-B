@@ -1,10 +1,26 @@
 context context1
 sets
+    VEH_TYPE
     COLOUR
 constants
+    truck_first
+    truck_middle
+    truck_last
+
+    bus_first
+    bus_last
+
+    van
+    minibus
+    car
+
+    nothing
+
     red
     green
 axioms
+    @axm0_1: partition(VEH_TYPE, {truck_first}, {truck_middle}, {truck_last}, {bus_first}, {bus_last}, {van}, {minibus}, {car}, {nothing})
+    @axm0_2: finite(VEH_TYPE)
     @axm0_3: partition(COLOUR, {red}, {green})
     @axm0_4: finite(COLOUR)
 end

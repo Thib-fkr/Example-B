@@ -1,0 +1,52 @@
+machine machine1
+variables
+    veh_in_file1
+    veh_in_file2
+    veh_in_system
+
+invariants
+    @inv0_1: veh_in_file1 ∈ ℕ
+    @inv0_2: veh_in_file2 ∈ ℕ
+    @inv0_3: veh_in_system ∈ ℕ
+
+events
+    event INITIALISATION
+    then
+        @act0_1: veh_in_file1 ≔ 0
+        @act0_2: veh_in_file2 ≔ 0
+        @act0_3: veh_in_system ≔ 0
+    end
+
+    event new_veh_file1
+    then
+        @act0_1: veh_in_file1 ≔ veh_in_file1 + 1
+    end
+
+    event new_veh_file2
+    then
+        @act0_1: veh_in_file2 ≔ veh_in_file2 + 1
+    end
+
+    event veh_passes_from_file1_to_system
+    where
+        @grd0_1: veh_in_file1 ≥ 1
+    then
+        @act0_1: veh_in_file1 ≔ veh_in_file1 - 1
+        @act0_2: veh_in_system ≔ veh_in_system + 1
+    end
+
+    event veh_passes_from_file2_to_system
+    where
+        @grd0_1: veh_in_file2 ≥ 1
+    then
+        @act0_1: veh_in_file2 ≔ veh_in_file2 - 1
+        @act0_2: veh_in_system ≔ veh_in_system + 1
+    end
+
+    event veh_leaves_system
+    where
+        @grd0_3: veh_in_system ≥ 1
+    then
+        @act0_10: veh_in_system ≔ veh_in_system-1
+    end
+end

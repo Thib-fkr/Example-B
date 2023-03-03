@@ -1,0 +1,58 @@
+machine machine2 refines machine1
+sees context2
+variables
+    veh_in_file1
+    veh_in_file2
+    veh_in_system
+
+    chain1_signal
+    chain1_place1
+
+    chain2_signal
+    chain2_place1
+
+    chain3_signal
+    chain3_place1
+
+invariants
+    @inv1_1: veh_in_file1 ∈ ℕ
+    @inv1_2: veh_in_file2 ∈ ℕ
+    @inv0_3: veh_in_system ∈ ℕ
+    @inv1_3: veh_in_file1 ≥ 0
+    @inv1_4: veh_in_file2 ≥ 0
+
+
+    @inv1_7: chain1_signal ∈ COLOUR
+    @inv1_8: chain2_signal ∈ COLOUR
+
+    @inv1_16: chain1_place1 ∈ {truck_last, truck_middle, truck_first, nothing}
+
+    @inv1_21: chain2_place1 ∈ {bus_last, bus_first, nothing}
+
+    @inv1_25: chain3_place1 ∈ {car, nothing}
+
+events
+    event INITIALISATION
+    then
+        @act1_1: veh_in_file1 ≔ 0
+        @act1_2: veh_in_file2 ≔ 0
+        @act0_3: veh_in_system ≔ 0
+
+        @act1_5: chain1_signal ≔ green
+        @act1_6: chain2_signal ≔ green
+
+        @act1_10: chain1_place1 ≔ nothing
+
+        @act1_14: chain2_place1 ≔ nothing
+    end
+
+    event update_chain1_signal
+    then
+        @act1_7: chain1_signal :∣ (chain1_signal' ∈ COLOUR) ∧ (chain1_place1 = nothing ⇒ chain1_signal' = green) ∧ (chain1_place1 ≠ nothing ⇒ chain1_signal' = red)
+    end
+
+    event update_chain2_signal
+    then
+        @act1_1: chain2_signal :∣ (chain2_signal' ∈ COLOUR) ∧ (chain2_place1 = nothing ⇒ chain2_signal' = green) ∧ (chain2_place1 ≠ nothing ⇒ chain2_signal' = red)
+    end
+end

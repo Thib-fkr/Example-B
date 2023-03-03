@@ -51,7 +51,7 @@ where `< conditionX >` is a boolean expression,
 
 where `< actionX >` is an action that verify some property of `var1'` such as `var1' = value1`.
 
-which is kind of equivalent to :
+which is similar to :
 ```python
 if conditionA :
     actionA

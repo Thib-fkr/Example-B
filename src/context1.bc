@@ -1,0 +1,10 @@
+context context1
+sets
+    COLOUR
+constants
+    red
+    green
+axioms
+    @axm0_3: partition(COLOUR, {red}, {green})
+    @axm0_4: finite(COLOUR)
+end
